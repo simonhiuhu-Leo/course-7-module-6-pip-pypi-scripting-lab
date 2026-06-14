@@ -6,6 +6,7 @@ def generate_log(log_entries, output_dir="."):
     if not isinstance(log_entries, list):
         raise ValueError("log_entries must be a list.")
 
+    os.makedirs(output_dir, exist_ok=True)
     filename = f"log_{datetime.now().strftime('%Y%m%d')}.txt"
     filepath = os.path.join(output_dir, filename)
 
@@ -24,3 +25,4 @@ if __name__ == "__main__":
         "Report exported",
     ]
     generate_log(sample_logs)
+
